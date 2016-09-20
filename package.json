@@ -1,0 +1,28 @@
+{
+  "name": "container",
+  "version": "0.1.0",
+  "description": "A simple dependency injection IoC container written in typescript utilising decorators and relect metadata",
+  "main": "container.js",
+  "typings": "container.d.ts",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crossrails/ioc.git"
+  },
+  "author": "Nicholas Bransby-Williams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crossrails/ioc/issues"
+  },
+  "homepage": "https://github.com/crossrails/ioc#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.8",
+    "typescript": "^2.0.2"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.2",
+    "@types/jasmine": "^2.2.33"
+  }
+}
