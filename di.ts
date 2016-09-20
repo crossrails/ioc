@@ -22,6 +22,7 @@ export function rebind<T, S extends T>(type: {new (...args: any[]): T}): BindTo<
         toFactory: () => (method:() => S) => factories.set(type, method)
     }
 }
+
 export function unbind<T>(type: {new (...args: any[]): T}) {
     factories.delete(type);
 }

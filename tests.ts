@@ -1,4 +1,4 @@
-import {inject, bind, rebind} from './container'
+import {inject, bind, rebind} from './di'
 
 interface Interface {
 }

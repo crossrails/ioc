@@ -1,9 +1,9 @@
 {
-  "name": "container",
+  "name": "di",
   "version": "0.1.0",
-  "description": "A simple dependency injection IoC container written in typescript utilising decorators and relect metadata",
-  "main": "container.js",
-  "typings": "container.d.ts",
+  "description": "A simple dependency injection container written in typescript utilising decorators and relect metadata",
+  "main": "di.js",
+  "typings": "di.d.ts",
   "scripts": {
     "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
   },

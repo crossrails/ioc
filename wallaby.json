@@ -1,7 +1,7 @@
 {
   "testFramework": "jasmine",
   "files": [
-      "container.ts"
+      "di.ts"
   ],
   "tests": [
       "tests.ts"
