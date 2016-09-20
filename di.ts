@@ -18,8 +18,8 @@ export function bind<T, S extends T>(type: {new (...args: any[]): T}): BindTo<T,
 
 export function rebind<T, S extends T>(type: {new (...args: any[]): T}): BindTo<T, S> {
     return {
-        toSingleton: () => (binding: {new (): T} | S) => factories.set(type, () => binding),
-        toFactory: () => (method:() => S) => factories.set(type, method)
+        toSingleton: (binding: {new (): T} | S) => factories.set(type, () => binding),
+        toFactory: (method:() => S) => factories.set(type, method)
     }
 }
 
