@@ -27,7 +27,7 @@ class TestServiceImplementation implements TestService {
 
 class TestInjectable {
     @inject
-    service: TestService
+    readonly service: TestService
 
     constructor() {
     }
@@ -39,15 +39,15 @@ describe("Container", () => {
         //singleton bind: will use the instance passed in 
         bind(TestService).toSingleton(new TestServiceImplementation);
         //singleton lazy bind: only works with no arg constructors, if you want to delay the construction of the singleton to until its needed - will create an instance on first use and reuse for all other injections 
-        bind(TestService).toSingleton(TestServiceImplementation);
+        //bind(TestService).toSingleton(TestServiceImplementation);
         //factory bind: if you want each injection to have its own instance - will create an instance on first use in every injection   
-        bind(TestService).toFactory(() => new TestServiceImplementation);
+        //bind(TestService).toFactory(() => new TestServiceImplementation);
         //lazy factory bind: if you want to delay the construction of a singleton who's constructor requires args to until its needed - will create an instance on first use and reuse for all other injections     
-        bind(TestService).toFactory(() => {
-            const instance = new TestServiceImplementation;
-            rebind(TestService).toSingleton(instance);
-            return instance;
-        });
+        // bind(TestService).toFactory(() => {
+        //     const instance = new TestServiceImplementation;
+        //     rebind(TestService).toSingleton(instance);
+        //     return instance;
+        // });
         const instance = new TestInjectable;
         instance.service.test();
         expect(instance.service.handled).toBe(true);

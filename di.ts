@@ -45,7 +45,7 @@ export function obtain<T, S extends T>(type: {new (...args: any[]): T}): S {
 export function inject(target: Object, propertyKey: string | symbol): void {
     Object.defineProperty(target, propertyKey, { configurable: true, get: function(this: Object) {
         const type = Reflect.getMetadata("design:type", target, propertyKey);
-        if(type == Object) throw new Error(`Cannot inject ${target.constructor.name}.${propertyKey} as it is an interface type not known at runtime, use declaration merging to preserve type (define an empty class of the same name)`);
+        if(type == Object) throw new Error(`Cannot inject ${target.constructor.name}.${propertyKey} as it is an interface type not known at runtime, use declaration merging to preserve type information (define an empty class of the same name)`);
         if(!factories.has(type)) throw new Error(`Cannot inject ${target.constructor.name}.${propertyKey} because ${type.name} has not been bound, call bind(${type.name}).toSingleton({})`);
         let binding = obtain(type); 
         Object.defineProperty(this, propertyKey, {value: binding});
