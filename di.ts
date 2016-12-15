@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-const factories = new Map<Function, () => {new (): Object} | Object>();
+const factories = new Map<{ prototype: Object, name: string }, () => {new (): Object} | Object>();
 
 function isType(binding: {new (): Object} | Object, type: any): binding is {new (): Object} {
     return !(binding instanceof type);
@@ -11,19 +11,19 @@ export interface BindTo<T, S extends T> {
     toFactory(method: () => S): void
 }
 
-export function bind<T, S extends T>(type: {new (...args: any[]): T}): BindTo<T, S> {
+export function bind<T, S extends T>(type: { prototype: T, name: string }): BindTo<T, S> {
     if(factories.has(type)) throw new Error(`${type.name} already bound to ${factories.get(type)!().constructor.name}, call rebind(${type.name}) instead if that was your intention`)
     return rebind(type);
 }
 
-export function rebind<T, S extends T>(type: {new (...args: any[]): T}): BindTo<T, S> {
+export function rebind<T, S extends T>(type: { prototype: T, name: string }): BindTo<T, S> {
     return {
         toSingleton: (binding: {new (): T} | S) => factories.set(type, () => binding),
         toFactory: (method:() => S) => factories.set(type, method)
     }
 }
 
-export function unbind<T>(type: {new (...args: any[]): T}) {
+export function unbind<T>(type: { prototype: T, name: string }) {
     factories.delete(type);
 }
 
@@ -31,7 +31,7 @@ export function clearBindings() {
     factories.clear();
 }
 
-export function obtain<T, S extends T>(type: {new (...args: any[]): T}): S {
+export function obtain<T, S extends T>(type: { prototype: T, name: string }): S {
     const factory = factories.get(type);
     if(factory == undefined) throw new Error(`Cannot obtain ${type.name} because it has not been bound, call bind(${type.name}).toSingleton({})`);
     let binding = factory();
