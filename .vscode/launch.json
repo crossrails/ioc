@@ -2,17 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Jasmine-Node Debugging",
-            "cwd": "${workspaceRoot}",
-            "program": "${workspaceRoot}/node_modules/jasmine/bin/jasmine.js",
-            "request": "launch",
             "type": "node",
-            "preLaunchTask": "build",
-            "internalConsoleOptions": "openOnSessionStart",
-			"sourceMaps": true,
+            "protocol": "legacy",
+            "request": "launch",
+            "name": "Tests",
+            "program": "${workspaceRoot}/node_modules/jest/bin/jest",
             "args": [
-                "tests.js"
-            ]
+                "--runInBand"
+            ],
+            "console": "internalConsole",
+            "sourceMaps": true,
+            "internalConsoleOptions": "openOnSessionStart",
+            "showAsyncStacks": true,
+            "preLaunchTask": "build"
         }
     ]
 }

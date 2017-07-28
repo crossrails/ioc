@@ -1,5 +1,5 @@
 {
-  "testFramework": "jasmine",
+  "testFramework": "jest",
   "files": [
       "di.ts"
   ],

@@ -1,11 +1,11 @@
 {
   "name": "di",
   "version": "0.1.0",
-  "description": "A simple dependency injection container written in typescript utilising decorators and relect metadata",
+  "description": "A simple dependency injection container written in typescript utilizing decorators and reflect metadata",
   "main": "di.js",
   "typings": "di.d.ts",
   "scripts": {
-    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,24 @@
   },
   "homepage": "https://github.com/crossrails/ioc#readme",
   "dependencies": {
-    "reflect-metadata": "^0.1.8",
-    "typescript": "^2.0.2"
+    "reflect-metadata": "^0.1.10"
   },
   "devDependencies": {
-    "jasmine": "^2.5.2",
-    "@types/jasmine": "^2.2.33"
+    "@types/jest": "^20.0.5",
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.7",
+    "typescript": "^2.4.2"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }

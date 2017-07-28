@@ -3,10 +3,10 @@
     "files.exclude": {
         "**/.git": true,
         "**/.DS_Store": true,
-        // "*.js": { "when": "$(basename).ts" },
-        "*.d.ts": { "when": "$(basename).ts" },
-        "*.js.map": true
+        "**/*.js": { "when": "$(basename).ts" },
+        "**/*.d.ts": { "when": "$(basename).ts" },
+        "**/*.js.map": true
     },
-   "typescript.tsdk": "./node_modules/typescript/lib",
-   "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "vsicons.presets.angular": false
 }

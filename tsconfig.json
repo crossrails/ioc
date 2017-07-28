@@ -1,22 +1,23 @@
 {
+  "include": [
+      "di.ts",
+      "test"
+  ],
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "noFallthroughCasesInSwitch": false,
-    "noImplicitReturns": true,
-    "preserveConstEnums": true,
-    "pretty": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true
-  }, 
-  "exclude": [
-    "node_modules"
-  ]
+      "module": "commonjs",
+      "target": "es2017",
+      "pretty": true,
+      "sourceMap": true,
+      "strict": true,
+      "allowUnreachableCode": false,
+      "allowSyntheticDefaultImports": false,
+      "allowUnusedLabels": false,
+      "preserveConstEnums": true,
+      "noUnusedParameters": true,
+      "noUnusedLocals": true,
+      "noImplicitReturns": true,
+      "isolatedModules": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true
+  }
 }
